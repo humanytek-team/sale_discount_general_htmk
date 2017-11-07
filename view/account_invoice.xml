@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record model="ir.ui.view" id="sale_global_discount_invoice_line">
+        <field name="name">sale_global_discount_invoice.line.form</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="sale_global_discount.sale_global_discount_invoice"/>
+        <field name="arch" type="xml">
+            <field name='discount_type' position="attributes">
+                <attribute name="readonly">'1'</attribute>
+            </field>
+            <field name='discount_rate' position="attributes">
+                <attribute name="readonly">'1'</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>
