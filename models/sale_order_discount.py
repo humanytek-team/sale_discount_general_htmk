@@ -20,7 +20,7 @@
 #
 ###############################################################################
 
-from odoo import fields, models, api, _
+from odoo import fields, models, api
 from odoo.addons import decimal_precision as dp
 import logging
 _logger = logging.getLogger(__name__)
@@ -43,6 +43,9 @@ class Sale_order_discount(models.Model):
     def _prepare_invoice(self):
         res = super(Sale_order_discount, self)._prepare_invoice()
         res['line_discount_rate'] = self.line_discount_rate
+        if self.discount_rate > 0:
+            res['line_discount_rate'] = self.discount_rate
+        res['discount_rate'] = 0
         return res
 
 
